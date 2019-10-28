@@ -1,6 +1,6 @@
 package brackground.dao;
 
-import entity.TmStoreAdmin;
+import frontEnd.zxq.entity.TmStoreAdmin;
 
 import java.sql.SQLException;
 

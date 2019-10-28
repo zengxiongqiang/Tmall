@@ -1,6 +1,6 @@
 package brackground.dao.Imp;
 
-import entity.TmStoreAdmin;
+import frontEnd.zxq.entity.TmStoreAdmin;
 import org.apache.commons.dbutils.QueryRunner;
 import brackground.dao.StorAdminDao;
 import utils.C3p0Utils;

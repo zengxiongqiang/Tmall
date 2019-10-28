@@ -20,7 +20,7 @@ public class Filter implements javax.servlet.Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         req.setCharacterEncoding("utf-8");
         resp.setContentType("text/html;charset=utf-8");
-        filterChain.doFilter(servletRequest,servletResponse);
+        filterChain.doFilter(req,resp);
     }
 
     @Override
