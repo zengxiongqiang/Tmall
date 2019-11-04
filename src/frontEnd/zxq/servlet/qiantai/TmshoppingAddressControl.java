@@ -59,9 +59,9 @@ public class TmshoppingAddressControl extends HttpServlet {
             }
         }else if (uri.indexOf("TmShoppingAddress")>=0){
             try {
-                //拿到用户的所有收货地址信息，将其放入session里面
+                //拿到用户的所有收货地址信息，更新session里面的地址信息
+                System.out.println("已经发生请求");
                 List<TmShoppingAddress> list = tmshoppingAddressDaoImp.finddress(tmuid);
-
                 req.getSession().setAttribute("list",list);
                 req.getRequestDispatcher("frontDesk/zxq/TmShoppingAddress.jsp").forward(req,resp);
             } catch (SQLException e) {

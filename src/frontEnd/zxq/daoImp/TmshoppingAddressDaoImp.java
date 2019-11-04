@@ -19,7 +19,11 @@ public class TmshoppingAddressDaoImp implements TmshoppingAddressDao {
         return queryRunner.query(sql,new BeanListHandler<TmShoppingAddress>(TmShoppingAddress.class),tmuid);
     }
 
-
+    public List<TmShoppingAddress> finddress(String name ) throws SQLException {
+        String sql = "select * from TmshoppingAddress where name=?";
+        // List<TmShoppingAddress> listaddress =
+        return queryRunner.query(sql,new BeanListHandler<TmShoppingAddress>(TmShoppingAddress.class),name);
+    }
 
 
     @Override

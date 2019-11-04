@@ -58,6 +58,32 @@ public class TmpersonalInformationControl extends HttpServlet {
 
             }
 
+        }else if (uri.indexOf("updata")>=0){
+            //拿到用户登录的相关信息Tmuser  //获取session里面的car对象
+            HttpSession httpSession = req.getSession();
+            TmUser tmUser = (TmUser)httpSession.getAttribute("user");
+            int  tmuid = tmUser.getTmuid();
+
+
+            String signature = req.getParameter("signature");
+            String  name = req.getParameter("name");
+            String sex =  req.getParameter("sex");
+
+            String phone = req.getParameter("phone");
+            String email = req.getParameter("email");
+            String dress1 = req.getParameter("dress1");
+            String dress2 = req.getParameter("dress2");
+
+            String homedress = dress1+dress2;
+
+            TmPersonalInformation tmPersonalInformation = new TmPersonalInformation(tmuid,name,sex,phone,email,null,homedress,null,signature);
+
+            try {
+                tmpersonalInformationDaoImp.updataInfo(tmPersonalInformation);
+                resp.sendRedirect("frontDesk/zxq/registerSuccess.jsp");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

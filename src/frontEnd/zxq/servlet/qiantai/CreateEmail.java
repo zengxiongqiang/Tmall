@@ -31,7 +31,8 @@ public class CreateEmail {
     public CreateEmail( String receiveMail, String receiveName, String title, String message) throws UnsupportedEncodingException, MessagingException {
 
         //给session赋值-------------------------------------------------------------------
-
+        System.out.println("aaaaaaaaaaaaaaa");
+        System.out.println(message);
         //1.创建参数配置，用于连接邮件服务器的参数配置
         Properties props = new Properties();//参数配置
         props.setProperty("mail.transport.protocol","smtp");//使用的协议
@@ -48,7 +49,7 @@ public class CreateEmail {
         this.receiveMail = receiveMail;
         this.receiveName = receiveName;
         this.title = title;
-        this.message = message;
+        this.message = message+"";
         //给emailMessage赋值-------------------------------------------------------------------
 
         emailMessage = new MimeMessage(session);
@@ -63,7 +64,11 @@ public class CreateEmail {
         emailMessage.setSubject(title, "UTF-8");
 
         // 5. Content: 邮件正文（可以使用html标签）（内容有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改发送内容）
-        emailMessage.setContent(message, "text/html;charset=UTF-8");
+       // emailMessage.setContent("<h1>验证码:" + "<p>message</p>" + "</h1>", "text/html;charset=UTF-8");
+//        emailMessage.setText(message.toString());
+//        emailMessage.setText("zxq");
+        System.out.println("ghfghfghfghfghfghfghfghfghfhgfghfghfghfhgf::::::"+message);
+        emailMessage.setContent("<h3>验证码："+message+"</h3>", "text/html;charset = gbk");
 
         // 6. 设置发件时间
         emailMessage.setSentDate(new Date());
@@ -184,5 +189,19 @@ public class CreateEmail {
 
     public void setEmailMessage(MimeMessage emailMessage) {
         this.emailMessage = emailMessage;
+    }
+
+    @Override
+    public String toString() {
+        return "CreateEmail{" +
+                "session=" + session +
+                ", sendName='" + sendName + '\'' +
+                ", sendMail='" + sendMail + '\'' +
+                ", receiveMail='" + receiveMail + '\'' +
+                ", receiveName='" + receiveName + '\'' +
+                ", title='" + title + '\'' +
+                ", message='" + message + '\'' +
+                ", emailMessage=" + emailMessage +
+                '}';
     }
 }

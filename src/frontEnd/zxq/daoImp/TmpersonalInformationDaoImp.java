@@ -30,10 +30,9 @@ public class TmpersonalInformationDaoImp implements TmpersonalInformationDao {
     }
 
     @Override
-    public void updataInfo(TmPersonalInformation tmPersonalInformation) throws SQLException {
-        deleteInfo(tmPersonalInformation.getTmuid());
-        addInfo(tmPersonalInformation);
-
+    public void updataInfo(TmPersonalInformation tp) throws SQLException {
+        String sql =  "updata tmpersonalInformation set name = ?,sex = ?,signature =? ,homedress = ?,phone =?,email = ? where tmuid = ?";
+        queryRunner.update(sql,tp.getName(),tp.getSex(),tp.getSignature(),tp.getHomedress(),tp.getPhone(),tp.getEmail(),tp.getTmuid());
     }
 
     @Override

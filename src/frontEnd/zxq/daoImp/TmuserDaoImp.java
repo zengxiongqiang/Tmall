@@ -9,9 +9,11 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.junit.Test;
 import utils.C3p0Utils;
 
+import javax.xml.crypto.Data;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Scanner;
 
 public class TmuserDaoImp implements TmuserDao {
     private QueryRunner queryRunner = new QueryRunner(C3p0Utils.getDataSource());
@@ -59,8 +61,8 @@ public class TmuserDaoImp implements TmuserDao {
 
     @Override
     public void updataTmuser(TmUser tmUser) throws SQLException {
-        String  sql = "update TmUser set name =?,password =? where tmuid =?";
-        queryRunner.update(sql,tmUser.getName(),tmUser.getPassword(),tmUser.getTmuid());
+        String  sql = "update TmUser set password =? where tmuid =?";
+        queryRunner.update(sql,tmUser.getPassword(),tmUser.getTmuid());
 
     }
 

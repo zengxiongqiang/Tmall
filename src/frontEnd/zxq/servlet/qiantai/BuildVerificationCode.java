@@ -49,17 +49,14 @@ public class BuildVerificationCode {
 
     @Test
    public void text (){
-        BuildVerificationCode b = new BuildVerificationCode();
-        int j='a';
-        int k = 'A';
-        int h = 'z';
-        int f = 'Z';
+        int j = 8;
+        for (int i = 0 ; i<11;i++){
+            System.out.println(new BuildVerificationCode().verification);
 
-        System.out.println(6%2);
-        System.out.println(8%3);
-        System.out.println(6%3);
-        System.out.println(f);
-        System.out.println(b.verification);
+        }
+
+
+
 
     }
 }

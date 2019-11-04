@@ -37,6 +37,7 @@ public class SendEmail {
     }
 
     public  void send() throws MessagingException {
+
         transport.connect(myEmailAccount, myEmailPassword);
 
         // 6. 发送邮件, 发到所有的收件地址, message.getAllRecipients() 获取到的是在创建邮件对象时添加的所有收件人, 抄送人, 密送人
